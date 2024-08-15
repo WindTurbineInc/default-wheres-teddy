@@ -1,0 +1,32 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: default-wheres-teddy-app-dev
+  annotations:
+    argocd/app-name: default-wheres-teddy-app-dev
+    backstage.io/kubernetes-id: default-wheres-teddy-app
+    backstage.io/kubernetes-namespace: default
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: WindTurbineInc/default-wheres-teddy
+    janus-idp.io/tekton-enabled: 'true'
+  tags:
+    - python
+    - genai
+    - datascience
+    - nodejs
+  links:
+    - url: https://console-openshift-console.apps.cluster-cqgbn.sandbox2298.opentlc.com/dev-pipelines/ns/default/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.apps.cluster-cqgbn.sandbox2298.opentlc.com/k8s/ns/default/deployments/default-wheres-teddy-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.apps.cluster-cqgbn.sandbox2298.opentlc.com/#https://github.com/WindTurbineInc/default-wheres-teddy?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "admin"
+  consumesApis:
+  - photo-generator-genai
